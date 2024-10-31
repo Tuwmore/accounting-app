@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Rubik';
+  src: url('./font/Rubik/Rubik-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik-italic';
+  src: url('./font/Rubik/Rubik-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

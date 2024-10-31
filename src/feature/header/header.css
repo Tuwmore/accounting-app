@@ -1,0 +1,12 @@
+.header-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu {
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    font-family: "Rubik";
+    font-weight: 100;
+  }
