@@ -4,7 +4,7 @@ import { Avatar, Card } from 'antd';
 const { Meta } = Card;
 
 const CardBox: React.FC = () => (
-    <Card>
+    <Card style={{ width: "31%", flex: "true" }}>
       <Meta
         avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
         title="Card title"
