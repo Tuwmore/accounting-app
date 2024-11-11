@@ -1,0 +1,35 @@
+/* ProfileCard.css */
+.profile-card {
+    align-items: center;
+    justify-content: space-between;
+    border: 3px solid #274582;
+    border-radius: 36px;
+    background-color: #f9f9f9;
+  }
+  
+  .profile-card__name {
+    font-size: 24px;
+    color: #274582;
+  }
+  
+  .profile-card__role {
+    font-size: 20px;
+    font-weight: bold;
+    color: #274582;
+  }
+  
+  .profile-card__date-time {
+    text-align: right;
+  }
+  
+  .profile-card__time {
+    font-size: 18px;
+    color: #274582;
+  }
+  
+  .profile-card__date {
+    font-size: 18px;
+    font-weight: bold;
+    color: #274582;
+  }
+  

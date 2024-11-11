@@ -10,3 +10,9 @@
     font-family: "Rubik";
     font-weight: 100;
   }
+
+  .logo {
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+  }

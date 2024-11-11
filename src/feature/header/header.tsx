@@ -2,11 +2,12 @@ import React from 'react';
 import { Layout, Menu, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
+import icon from "../../assets/Icon Logo 2.png";
 import './header.css';
 
 const { Header } = Layout;
 
-const labels = ["Home", "Profile", "Settings", "About", "New"];
+const labels = ["Pendapatan", "Pengeluaran", "Dana", "Tabungan", "Hutang"];
 
 const items = labels.map((label, index) => ({
   key: index + 1,
@@ -17,7 +18,7 @@ const HeaderComponent: React.FC = () => {
 
   return (
       <Header className="header-container">
-        <div className="demo-logo" />
+        <img src={icon} alt="icon" className="logo" />
         <Menu        
           className="menu"
           theme="dark"
