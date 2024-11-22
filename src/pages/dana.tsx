@@ -1,9 +1,8 @@
 import Header from "../feature/header/header"
 import ActivityBoard from "../feature/activity/activity-board/activity-board"
-import Card from "../feature/card/card"
 import UserProfil from "../feature/user-profil/user-profil";
 
-import { Breadcrumb, Layout, Menu, theme, Col, Row, Divider } from 'antd';
+import { Layout,Col, Row } from 'antd';
 
 const { Content, Footer } = Layout;
 
@@ -16,13 +15,19 @@ const Dana: React.FC = () => {
             
             <Row justify="space-evenly">
                 <Col span={7}>
-                    <ActivityBoard/>
+                    <ActivityBoard
+                        title="Cash"
+                    />
                 </Col>
                 <Col span={7}>
-                    <ActivityBoard/>
+                    <ActivityBoard
+                        title="Bank"
+                    />
                 </Col>
                 <Col span={7}>
-                    <ActivityBoard/>
+                    <ActivityBoard
+                        title="E-wallet"
+                    />
                 </Col>
 
             </Row>

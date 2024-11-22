@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, Col, Row, Avatar, Typography, Space } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import "./user-profil.css"
-import Meta from 'antd/es/card/Meta';
 
 const { Text } = Typography;
 

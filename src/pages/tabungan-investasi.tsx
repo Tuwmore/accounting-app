@@ -2,6 +2,7 @@ import Header from "../feature/header/header"
 import ActivityBoard from "../feature/activity/activity-board/activity-board"
 import Card from "../feature/card/card"
 import UserProfil from "../feature/user-profil/user-profil";
+import TitleDivider from "../feature/title-divider/title-divider";
 
 import { Layout, Col, Row, Divider } from 'antd';
 
@@ -13,20 +14,35 @@ const TI: React.FC = () => {
         <Layout style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <Header/>
             <UserProfil/>
-            <Divider />
-            <Row justify="space-evenly" align="middle">
+            <TitleDivider 
+                title="Tabungan & Investasi"
+            />
+            <Row justify="space-evenly" align="top">
                 <Col span={7}>
-                    <ActivityBoard/>
+                    <ActivityBoard
+                        title="Tabungan"
+                    />
                 </Col>
                 <Col span={7}>
-                    <Card/>
+                    <Card
+                        title="Total"
+                        type="T"
+                    />
                     <Divider />
-                    <Card/> 
+                    <Card
+                        title="Tabungan"
+                        type="Tb"
+                    /> 
                     <Divider />
-                    <Card/>        
+                    <Card
+                        title="Investasi"
+                        type="Inv"
+                    />        
                 </Col>
                 <Col span={7}>
-                    <ActivityBoard/>
+                    <ActivityBoard
+                        title="Investasi"
+                    />
                 </Col>
 
             </Row>

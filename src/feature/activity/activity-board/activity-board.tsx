@@ -1,33 +1,43 @@
 import React from 'react';
-import { List, Typography, Tag, Card } from 'antd';
+import { List, Typography, Card } from 'antd';
 import './activity-board.css';
 
 const { Title } = Typography;
 
+interface ActivityBoard{
+  title: string;
+}
+
 const activities = [
-  { type: 'IN' },
-  { type: 'OUT' },
-  { type: 'OUT' },
-  { type: 'IN' },
-  { type: 'OUT' },
-  { type: 'IN' },
-  { type: 'OUT' },
+  { type: "IN", description: "Keterangan", amount: "Rp." },
+  { type: "OUT", description: "Keterangan", amount: "Rp." },
+  { type: "IN", description: "Keterangan", amount: "Rp." },
+  { type: "OUT", description: "Keterangan", amount: "Rp." },
+  { type: "OUT", description: "Keterangan", amount: "Rp." },
+  { type: "IN", description: "Keterangan", amount: "Rp." },
+  { type: "OUT", description: "Keterangan", amount: "Rp." },
 ];
 
-const ActivityBoard: React.FC = () => {
+const ActivityBoard: React.FC<ActivityBoard> = ({title}) => {
   return (
     <Card className="activity-card">
-      <Title level={4} className="activity-card__title">Activity</Title>
+      <Title className="activity-card__title">{title}</Title>
       <List
         dataSource={activities}
         renderItem={(item) => (
           <List.Item className="activity-item">
-            <Tag
-              className="activity-tag"
-              color={item.type === 'IN' ? 'green' : 'red'}
-            >
-              {item.type}
-            </Tag>
+            <div className='activity-group'>
+              <div
+                className="activity-tag"
+                color={item.type === 'IN' ? 'green' : 'red'}
+              >
+                {item.type}
+              </div>
+              <div className="activity-content">
+                <div className="activity-amount">{item.amount}</div>
+                <div className="activity-note">{item.description}</div>
+              </div>
+            </div>
           </List.Item>
         )}
       />

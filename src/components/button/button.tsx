@@ -1,10 +1,15 @@
 import React from 'react';
-import './index.css';
 import { Button, Flex } from 'antd';
 
-const button: React.FC = () => (
+import "./button.css"
+
+interface button{
+  title: string;
+}
+
+const button: React.FC <button> = ({title}) => (
   <Flex gap="small" wrap>
-    <Button type="primary">Primary Button</Button>
+    <Button className='button'>{title}</Button>
   </Flex>
 );
 

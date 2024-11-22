@@ -15,19 +15,30 @@ const Beranda: React.FC = () => {
             <UserProfil/>
             <Row justify="space-evenly">
                 <Col span={7}>
-                    <Card/>
+                    <Card
+                        title="Pemasukan"
+                        type="IN"
+                    />
                 </Col>
                 <Col span={7}>
-                    <Card/>
+                    <Card
+                        title="Pengeluaran"
+                        type="OUT"
+                    />
                 </Col>
                 <Col span={7}>
-                    <Card/>
+                    <Card
+                        title="Dana"
+                        type="$"
+                    />
                 </Col>
             </Row>
             <Row justify="space-evenly">
                 <Col span={15}/>
                 <Col span={7}>
-                    <ActivityBoard/>
+                    <ActivityBoard
+                        title="Aktifitas"
+                    />
                 </Col>
             </Row>
             <Footer/>
