@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import logo from './logo.svg';
 import HeaderComponent from "./feature/header/header";
@@ -13,18 +14,28 @@ import TI from './pages/tabungan-investasi';
 import HP from './pages/hutang-piutang';
 import LogIn from "./pages/log-in"
 import Pendapatan from './pages/pendapatan';
+import Pengeluaran from './pages/pengeluaran';
 
 import './App.css';
 
 import { Layout } from 'antd';
 
-function App() {
+const App = () => {
   return (
-    <Layout>
-      <HP/>
-    </Layout>
-
+    <Router>
+      <Routes>
+        <Route path='/LogIn' element={<LogIn/>} />
+        <Route path="/pendapatan" element={<Pendapatan />} />
+        <Route path="/pengeluaran" element={<Pengeluaran />} />
+        <Route path="/dana" element={<Dana />} />
+        <Route path="/tabungan" element={<TI />} />
+        <Route path="/hutang" element={<HP />} />
+        <Route path="/Beranda" element={<Beranda />} />
+        <Route path="/" element={<Beranda />} />
+      </Routes>
+    </Router>
   );
-}
+};
+
 
 export default App;
