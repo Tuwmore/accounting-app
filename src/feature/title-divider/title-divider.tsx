@@ -25,6 +25,7 @@ const TitleDivider: React.FC <TitleDivider> = ({title}) => {
               <Space align="center" size="large">
                 <Button
                   title='Tambah +'
+                  path="" //buat custom untuk page masing-masing
                 />
               </Space>
             </Col>

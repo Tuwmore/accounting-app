@@ -21,7 +21,9 @@ const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
 
-const App: React.FC = () => (
+const LogIn: React.FC = () => {
+
+  return(
     <Layout style={{ display: 'flex', flexDirection: 'column', gap: '4rem', height: "100vh", justifyContent: "space-between" }}>
         <HeaderComponent/>
         <Content style={{display: "flex", justifyContent: "center", alignItems: "baseline"}}>
@@ -63,6 +65,7 @@ const App: React.FC = () => (
                   <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                   <Button 
                     title='Submit'
+                    path="beranda"
                   />
                   </Form.Item>
               </Form>
@@ -70,6 +73,7 @@ const App: React.FC = () => (
         </Content>
         <FooterComponent/>
     </Layout>
-);
+  );
+};
 
-export default App;
+export default LogIn;

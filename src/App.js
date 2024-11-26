@@ -24,13 +24,13 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/LogIn' element={<LogIn/>} />
+        <Route path='/logIn' element={<LogIn/>} />
         <Route path="/pendapatan" element={<Pendapatan />} />
         <Route path="/pengeluaran" element={<Pengeluaran />} />
         <Route path="/dana" element={<Dana />} />
         <Route path="/tabungan" element={<TI />} />
         <Route path="/hutang" element={<HP />} />
-        <Route path="/Beranda" element={<Beranda />} />
+        <Route path="/beranda" element={<Beranda />} />
         <Route path="/" element={<Beranda />} />
       </Routes>
     </Router>
