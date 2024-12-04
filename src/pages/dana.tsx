@@ -1,10 +1,15 @@
+//Divider dana belum ada, karena khusus, dia perlu total di kanannya bukan tombol
+
+//local import
 import Header from "../feature/header/header"
 import ActivityBoard from "../feature/activity/activity-board/activity-board"
 import UserProfil from "../feature/user-profil/user-profil";
 
+//library import
 import { Layout,Col, Row } from 'antd';
 
-const { Content, Footer } = Layout;
+//variable declaration
+const { Footer } = Layout;
 
 const Dana: React.FC = () => {
 

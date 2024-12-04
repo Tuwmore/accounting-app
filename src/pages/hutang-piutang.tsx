@@ -1,12 +1,15 @@
+//local import
 import Header from "../feature/header/header"
 import ActivityBoard from "../feature/activity/activity-board/activity-board"
 import Card from "../feature/card/card"
 import UserProfil from "../feature/user-profil/user-profil";
 import TitleDivider from "../feature/title-divider/title-divider";
 
+//library import
 import { Layout, Col, Row, Space } from 'antd';
 
-const { Content, Footer } = Layout;
+//variable declaration
+const { Footer } = Layout;
 
 const HP: React.FC = () => {
 
@@ -27,11 +30,11 @@ const HP: React.FC = () => {
                     <Space direction="vertical" size="large" style={{ display: 'flex' }}>
                         <Card
                             title="Hutang"
-                            type="Ht"
+                            type="Ht"       //type untuk tulisan logo
                         />
                         <Card
                             title="Piutang"
-                            type="Pt"
+                            type="Pt"       //type untuk tulisan logo
                         /> 
                     </Space>
                 </Col>

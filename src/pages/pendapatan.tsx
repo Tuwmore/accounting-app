@@ -1,11 +1,14 @@
+//local import
 import Header from "../feature/header/header"
 import UserProfil from "../feature/user-profil/user-profil";
 import TitleDivider from "../feature/title-divider/title-divider";
 import TableCustom from "../feature/table/table";
 
+//library import
 import { Layout, Row} from 'antd';
 
-const { Content, Footer } = Layout;
+//variable declaration
+const { Footer } = Layout;
 
 const Pendapatan: React.FC = () => {
 
@@ -25,5 +28,3 @@ const Pendapatan: React.FC = () => {
   };
   
   export default Pendapatan;
-
-  // divider ada garisnya coba cari solusi lain

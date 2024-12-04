@@ -1,11 +1,16 @@
+//belum ada grafik, kayanya firebase bisa bikin grafik jadi 1 API aja
+
+//local import
 import Header from "../feature/header/header"
 import ActivityBoard from "../feature/activity/activity-board/activity-board"
 import Card from "../feature/card/card"
 import UserProfil from "../feature/user-profil/user-profil";
 
+//library import
 import { Layout, Col, Row } from 'antd';
 
-const { Content, Footer } = Layout;
+//variable declaration
+const { Footer } = Layout;
 
 const Beranda: React.FC = () => {
 

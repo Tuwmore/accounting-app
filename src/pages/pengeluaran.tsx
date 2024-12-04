@@ -1,11 +1,14 @@
+//local import
 import Header from "../feature/header/header"
 import UserProfil from "../feature/user-profil/user-profil";
 import TitleDivider from "../feature/title-divider/title-divider";
 import TableCustom from "../feature/table/table";
 
-import { Breadcrumb, Layout, Menu, theme, Col, Row, Divider, Space } from 'antd';
+//library import
+import { Layout, Row } from 'antd';
 
-const { Content, Footer } = Layout;
+//variable declaration
+const {  Footer } = Layout;
 
 const Pengeluaran: React.FC = () => {
 
@@ -25,5 +28,3 @@ const Pengeluaran: React.FC = () => {
   };
   
   export default Pengeluaran;
-
-  // divider ada garisnya coba cari solusi lain

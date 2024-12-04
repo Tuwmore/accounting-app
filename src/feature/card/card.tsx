@@ -1,10 +1,16 @@
+// untuk total harus ada logic penjumlahannya
+
+//library import
 import React from 'react';
 import { Avatar, Card, Typography, Space } from 'antd';
+
+//local import
 import "./card.css"
 
-const { Text } = Typography;
+//variable declaration
+const { Text } = Typography;  // untuk tulisan
 
-interface CardBox {
+interface CardBox {   // untuk input dinamis
   title: string;
   type: string;
 }
