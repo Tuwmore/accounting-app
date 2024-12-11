@@ -12,6 +12,7 @@ import ActivityBoard from './feature/activity/activity-board/activity-board';
 import TableCustom from './feature/table/table';
 
 //pages import
+//pages import
 import Beranda from './pages/beranda';
 import Dana from './pages/dana';
 import TI from './pages/tabungan-investasi';
@@ -19,6 +20,9 @@ import HP from './pages/hutang-piutang';
 import LogIn from "./pages/log-in"
 import Pendapatan from './pages/pendapatan';
 import Pengeluaran from './pages/pengeluaran';
+//form import
+import FormPendapatan from "./pages/form/form-pendapatan"
+import FormMaster from './pages/form/form-master';
 
 //hooks import
 import ProtectedRoute from './hooks/protected-route';
@@ -40,7 +44,9 @@ const App = () => {
             <Route path="/tabungan" element={<TI />} />
             <Route path="/hutang" element={<HP />} />
             <Route path="/beranda" element={<Beranda />} />
-            <Route path="/" element={<Beranda />} />
+            <Route path="/" element={<Beranda />} />  
+            <Route path='/form-pendapatan' element={<FormPendapatan />} />
+            <Route path='/form-master' element={<FormMaster/>}/>
           </Route>
         </Routes>
       </AuthProvider>

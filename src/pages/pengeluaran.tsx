@@ -3,14 +3,58 @@ import Header from "../feature/header/header"
 import UserProfil from "../feature/user-profil/user-profil";
 import TitleDivider from "../feature/title-divider/title-divider";
 import TableCustom from "../feature/table/table";
+import AmbilData from "../hooks/ambil-data";
+import { db } from "../firebase";
 
 //library import
-import { Layout, Row } from 'antd';
+import { Layout, Row} from 'antd';
+import { deleteDoc, doc } from "firebase/firestore";
 
 //variable declaration
-const {  Footer } = Layout;
+const { Footer } = Layout;
 
-const Pengeluaran: React.FC = () => {
+interface Pengeluaran {
+    id: string;
+    AsalDana: string;
+    JumlahPengeluaran: number;
+    Tanggal: string;
+    Tipe: string;
+  }
+
+const Pendapatan: React.FC = () => {
+    const { data, loading, error } = AmbilData<Pengeluaran>("Pengeluaran");
+
+    //function untuk edit data
+    const handleEdit = (record: Pengeluaran) => {
+        console.log("Edit:", record);
+        // Add navigation to edit form or inline editing logic
+    };
+
+    //function untuk menghapus data
+    const handleDelete = async (record: Pengeluaran) => {
+        try {
+        await deleteDoc(doc(db, "Pengeluaran", record.id));
+        console.log("Deleted:", record.id);
+        // Optionally, trigger a refetch or state update
+        } catch (err) {
+        console.error("Failed to delete:", err);
+        }
+    };
+
+    const columns = [
+        { title: "Tipe", dataIndex: "Tipe", key: "Tipe" },
+        { title: "Tanggal", dataIndex: "Tanggal", key: "Tanggal" },
+        { title: "Asal Dana", dataIndex: "Asal Dana", key: "Asal Dana" },
+        {
+        title: "Jumlah Pengeluaran",
+        dataIndex: "Jumlah Pengeluaran",
+        key: "Jumlah Pengeluaran",
+        render: (JumalahPengeluaran: number) => `Rp. ${JumalahPengeluaran.toLocaleString()}`
+        },
+    ];
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
 
     return (
         <Layout style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -18,13 +62,20 @@ const Pengeluaran: React.FC = () => {
             <UserProfil/>
             <TitleDivider
                 title="Pengeluaran"
+                path='' //ganti path asli
             />
             <Row justify="space-evenly" align="top" style={{gap: '20px' }}>
-                <TableCustom/>
+                <TableCustom<Pengeluaran>
+                    dataSource={data}
+                    columns={columns}
+                    onEdit={handleEdit}
+                    onDelete={handleDelete}
+                                
+                />
             </Row>
             <Footer/>
         </Layout>
     );
   };
   
-  export default Pengeluaran;
+  export default Pendapatan;

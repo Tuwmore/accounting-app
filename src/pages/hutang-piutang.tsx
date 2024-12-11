@@ -19,6 +19,7 @@ const HP: React.FC = () => {
             <UserProfil/>
             <TitleDivider
                 title="Hutang & Piutang"
+                path='' //ganti path asli
             />
             <Row justify="space-evenly" align="top" style={{gap: '20px' }}>
                 <Col sm={23} xs={23} md={23} lg={7}>

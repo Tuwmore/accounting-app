@@ -1,8 +1,16 @@
 import { useState } from "react";
-import { getAuth, signInWithEmailAndPassword, User } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, User, setPersistence, browserSessionPersistence } from "firebase/auth";
 import {app} from "../firebase"; // Adjust path to your firebase config
 
 const auth = getAuth(app);
+
+setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+    console.log("Auth persistence set to session-only");
+  })
+  .catch((error) => {
+    console.error("Failed to set auth persistence:", error);
+  });
 
 const useAuth = () => {
   const [user, setUser] = useState<User | null>(null);

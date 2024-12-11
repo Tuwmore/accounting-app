@@ -31,7 +31,7 @@ const LogIn: React.FC = () => {
       if (values.username && values.password) {
         await logIn(values.username, values.password);
         message.success('Login successful! Redirecting...');
-        navigate('/beranda'); // Navigate to the dashboard on success
+        navigate('/beranda'); // pergi ke beranda saat berasil
       } else {
         console.error("Username or password is missing.");
       }
@@ -47,17 +47,18 @@ const LogIn: React.FC = () => {
   return(
     <Layout style={{ display: 'flex', flexDirection: 'column', gap: '4rem', height: "100vh", justifyContent: "space-between" }}>
         <HeaderComponent/>
-        <Content style={{display: "flex", justifyContent: "center", alignItems: "baseline"}}>
-          <Layout>
+        <Content style={{display: "flex", justifyContent: "start", alignItems: 'baseline', marginLeft:"4rem"}}>
+          <div>
               <Form
                   name="basic"
-                  labelCol={{ span: 8 }}
-                  wrapperCol={{ span: 16 }}
-                  style={{ maxWidth: 600 }}
+                  labelCol={{ span: 18 }}
+                  wrapperCol={{ span: 18 }}
+                  style={{ width: 600 }}
                   initialValues={{ remember: true }}
                   onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
                   autoComplete="off"
+                  layout='vertical'
               >
                   <Form.Item<FieldType>
                   label="Username"
@@ -78,18 +79,20 @@ const LogIn: React.FC = () => {
                   <Form.Item<FieldType>
                   name="remember"
                   valuePropName="checked"
-                  wrapperCol={{ offset: 8, span: 16 }}
+                  wrapperCol={{ span: 16 }}
                   >
                   <Checkbox>Remember me</Checkbox>
                   </Form.Item>
 
-                  <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                  <Form.Item 
+                    wrapperCol={{ span: 16 }}
+                  >
                     <Button type="primary" htmlType="submit">
-                      Submit
+                      Masuk
                     </Button>
                   </Form.Item>
               </Form>
-          </Layout>
+          </div>
         </Content>
         <FooterComponent/>
     </Layout>

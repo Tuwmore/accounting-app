@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 //local import
 import icon from "../../assets/Icon Logo 2.png";
 import './header.css';
+import wipeLoginInfo from "../../hooks/log-out"; // Adjust the path to where you save this function
 
 //variable declaration
 const { Header } = Layout;
@@ -32,6 +33,17 @@ const HeaderComponent: React.FC = () => {
     navigate("/Beranda");
   };
 
+  const handleMaster = () => {
+    navigate("/form-master")
+  }
+
+  //logic log-out
+  const handleLogout = async () => {
+    await wipeLoginInfo();
+    console.log("All login info wiped.");
+    window.location.href = "/log-in"; // Redirect to login page
+  };
+
   return (
       <Header className="header-container">
         <img 
@@ -48,7 +60,13 @@ const HeaderComponent: React.FC = () => {
           items={items}
           onClick={handleMenuClick}
         />
-        <Avatar size={64} icon={<UserOutlined />} /> 
+        <button onClick={handleLogout}>Logout</button>
+        <Avatar 
+          size={64} 
+          icon={<UserOutlined />}
+          onClick={handleMaster}
+          style={{ cursor: "pointer" }}   
+        /> 
       </Header>
   );
 };

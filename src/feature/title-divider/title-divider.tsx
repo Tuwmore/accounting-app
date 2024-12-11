@@ -7,9 +7,10 @@ const { Text } = Typography;
 
 interface TitleDivider {
   title: string;
+  path: string;
 }
 
-const TitleDivider: React.FC <TitleDivider> = ({title}) => {
+const TitleDivider: React.FC <TitleDivider> = ({title, path}) => {
 
   return (
     <Row justify={"center"}>
@@ -25,7 +26,7 @@ const TitleDivider: React.FC <TitleDivider> = ({title}) => {
               <Space align="center" size="large">
                 <Button
                   title='Tambah +'
-                  path="" //buat custom untuk page masing-masing
+                  path={path} 
                 />
               </Space>
             </Col>

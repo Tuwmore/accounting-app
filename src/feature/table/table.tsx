@@ -1,62 +1,43 @@
-import React from 'react';
-import { Table } from 'antd';
-import type { TableColumnsType } from 'antd';
+import React from "react";
+import { Table, Button, TableProps } from "antd";
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
+interface ReusableTableProps<T> extends TableProps<T> {
+  dataSource: T[];
+  columns: any[];
+  onEdit?: (record: T) => void; // Edit handler
+  onDelete?: (record: T) => void; // Delete handler
 }
 
-const columns: TableColumnsType<DataType> = [
-  {
-    title: 'Asal Pemasukan',
-    width: 200,
-    dataIndex: 'name',
-    key: 'name',
-    fixed: 'left',
-  },
-  
-  { title: 'Tanggal', dataIndex: 'address', key: '1' },
-  { title: 'Sumber', dataIndex: 'address', key: '2' },
-  { title: 'Cara Pembayaran', dataIndex: 'address', key: '3' },
-
-  {
-    title: 'Edit',
-    key: 'operation',
+const TableCustom = <T extends { id: string }>({
+  dataSource,
+  columns,
+  onEdit,
+  onDelete,
+  ...props
+}: ReusableTableProps<T>) => {
+  const actionColumn = {
+    title: "Ubah",
+    key: "Ubah",
     fixed: 'right',
-    width: 75,
-    render: () => <a>Edit</a>,
-  },
-  
-  {
-    title: 'Delete',
-    key: 'operation',
-    fixed: 'right',
-    width: 75,
-    render: () => <a>Delete</a>,
-  },
+    width:150,
+    render: (text: any, record: T) => (
+      <div style={{ display: "flex", gap: "0.5rem" }}>
+        {onEdit && <Button onClick={() => onEdit(record)}>Edit</Button>}
+        {onDelete && <Button danger onClick={() => onDelete(record)}>Delete</Button>}
+      </div>
+    ),
+  };
 
-];
-
-const dataSource: DataType[] = [
-  { key: '1', name: 'Olivia', age: 32, address: 'New York Park' },
-  { key: '2', name: 'Ethan', age: 40, address: 'London Park' },  
-  { key: '2', name: 'Ethan', age: 40, address: 'London Park' },
-  { key: '2', name: 'Ethan', age: 40, address: 'London Park' },
-  { key: '1', name: 'Olivia', age: 32, address: 'New York Park' },
-
-];
-
-const TableCustom: React.FC = () => {
   return (
-    <Table<DataType>
-      pagination={false}
-      columns={columns}
+    <Table
       dataSource={dataSource}
+      columns={[...columns, actionColumn]} // Append actions column
+      rowKey="id"
+      bordered
+      pagination={{ pageSize: 10 }}
       scroll={{ x: 'max-content' }}
       style={{width: "95%"}}
+      {...props}
     />
   );
 };
