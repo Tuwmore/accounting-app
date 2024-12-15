@@ -29,11 +29,13 @@ const FormMaster: React.FC = () => {
     {
       name: "Kode",
       label: "Kode",
+      type: "text",
       rules: [{ required: true, message: "masukan Kode!" }],
     },
     {
         name: "Nama",
         label: "Nama",
+        type: "text",
         rules: [{ required: true, message: "Masukan Nama!" }],
     },
   ];

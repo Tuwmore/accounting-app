@@ -19,7 +19,7 @@ const TI: React.FC = () => {
             <UserProfil/>
             <TitleDivider 
                 title="Tabungan & Investasi"
-                path='' //ganti path asli
+                path='form-investasi-tabungan' //ganti path asli
             />
             <Row justify="space-evenly" align="top">
                 <Col span={7}>

@@ -1,14 +1,15 @@
 //library import
 import React from "react";
-import { Form, Input, Button, FormInstance } from "antd";
+import { Form, Input, Button, FormInstance, Select, Radio } from "antd";
 
 //ambil data untuk masing-masing form
 interface Field {
   name: string; // Field name
   label: string; // Field label
   placeholder?: string; // Input placeholder
-  type?: any; // Input type
+  type: string;  // Input type
   rules?: any[]; // Validation rules
+  options?: { label: string; value: string }[]; // For select fields
 }
 
 interface ReusableFormProps {
@@ -43,10 +44,24 @@ const ReusableForm: React.FC<ReusableFormProps> = ({
           name={field.name}
           rules={field.rules}
         >
-          <Input
-            placeholder={field.placeholder}
-            type={field.type}
-          />
+          {field.type === "text" && <Input />}
+          {field.type === "number" && <Input type="number" />}
+          {field.type === "date" && <Input type="date" />}
+          {field.type === "radio" && (
+            <Radio.Group>
+              <Radio value="In">In</Radio>
+              <Radio value="Out">Out</Radio>
+            </Radio.Group>  
+          )}
+          {field.type === "select" && (
+            <Select>
+              {field.options?.map((option) => (
+                <Select.Option key={option.value} value={option.value}>
+                  {option.label}
+                </Select.Option>
+              ))}
+            </Select>
+          )}
         </Form.Item>
       ))}
       <Form.Item>

@@ -11,25 +11,25 @@ import HeaderComponent from "../../feature/header/header";
 import FooterComponent from "../../feature/footer/footer";
 import AmbilData from "../../hooks/ambil-data";
 
-const FormPendapatan: React.FC = () => {
+const FormPengeluaran: React.FC = () => {
     const Navigate = useNavigate();
 
     //melakukan save data ke database
-    const handleSubmit = async (values: {AsalPemasukan:string; CaraPembayaran: string; Tanggal:string; TotalPemasukan:string; }) => {
+    const handleSubmit = async (values: {Tipe:string; AsalDana: string; Tanggal:string; JumlahPengeluaran:string; }) => {
         try {
             //mengubah data pemasukan menjadi float
-            const numericAmount = parseFloat(values.TotalPemasukan);
+            const numericAmount = parseFloat(values.JumlahPengeluaran);
 
             //penyimpanan data menuju database
-            await addDoc(collection(db, "Pendapatan"), {
-                AsalPemasukan:values.AsalPemasukan,
-                CaraPembayaran:values.CaraPembayaran,
+            await addDoc(collection(db, "Pengeluaran"), {
+                Tipe:values.Tipe,
+                AsalDana:values.AsalDana,
                 Tanggal:values.Tanggal,
-                TotalPemasukan:numericAmount,
+                JumlahPengeluaran:numericAmount,
                 createdAt: new Date(),
             });
             message.success("Data berasil ditambakan!");
-            Navigate('/pendapatan');
+            Navigate('/pengeluaran');
         }
         catch (error) {
             message.error("Data gagal ditambakan!");
@@ -54,17 +54,17 @@ const FormPendapatan: React.FC = () => {
     //data yang harus dimasukan
     const fields = [
     {
-      name: "AsalPemasukan",
-      label: "Asal Pemasukan",
+      name: "Tipe",
+      label: "Tipe",
       type: "select",
-      rules: [{ required: true, message: "Masukan Asal Dana!" }],
+      rules: [{ required: true, message: "Masukan tipe!" }],
       options: options,
     },
     {
-        name: "CaraPembayaran",
-        label: "Cara Pembayaran",
+        name: "AsalDana",
+        label: "Asal Dana",
         type: "select",
-        rules: [{ required: true, message: "Masukan Cara Pembayaran!" }],
+        rules: [{ required: true, message: "Masukan asal dana!" }],
         options: [
             {label: "Cash", value: "Cash"},
             {label: "E-wallet", value: "E-wallet"},
@@ -78,10 +78,10 @@ const FormPendapatan: React.FC = () => {
         rules: [{ required: true, message: "Masukan Tanggal!" }],
     },
     {
-      name: "TotalPemasukan",
-      label: "Total Pemasukan",
+      name: "JumlahPengeluaran",
+      label: "Jumlah Pengeluaran",
       type: "number",
-      rules: [{ required: true, message: "Masukan Jumalah pemasukan!" }],
+      rules: [{ required: true, message: "Masukan Jumalah pengeluaran!" }],
     },
   ];
 
@@ -99,4 +99,4 @@ const FormPendapatan: React.FC = () => {
   );
 };
 
-export default FormPendapatan;
+export default FormPengeluaran;

@@ -30,7 +30,7 @@ const HeaderComponent: React.FC = () => {
   const navigate = useNavigate();
 
   const handleLogoClick = () => { // logo logic navigation
-    navigate("/Beranda");
+    navigate("/beranda");
   };
 
   const handleMaster = () => {

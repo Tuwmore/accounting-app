@@ -44,12 +44,12 @@ const Pendapatan: React.FC = () => {
     const columns = [
         { title: "Tipe", dataIndex: "Tipe", key: "Tipe" },
         { title: "Tanggal", dataIndex: "Tanggal", key: "Tanggal" },
-        { title: "Asal Dana", dataIndex: "Asal Dana", key: "Asal Dana" },
+        { title: "Asal Dana", dataIndex: "AsalDana", key: "AsalDana" },
         {
         title: "Jumlah Pengeluaran",
-        dataIndex: "Jumlah Pengeluaran",
-        key: "Jumlah Pengeluaran",
-        render: (JumalahPengeluaran: number) => `Rp. ${JumalahPengeluaran.toLocaleString()}`
+        dataIndex: "JumlahPengeluaran",
+        key: "JumlahPengeluaran",
+        render: (JumlahPengeluaran: number) => `Rp. ${JumlahPengeluaran.toLocaleString()}`
         },
     ];
 
@@ -62,7 +62,7 @@ const Pendapatan: React.FC = () => {
             <UserProfil/>
             <TitleDivider
                 title="Pengeluaran"
-                path='' //ganti path asli
+                path="form-pengeluaran" //ganti path asli
             />
             <Row justify="space-evenly" align="top" style={{gap: '20px' }}>
                 <TableCustom<Pengeluaran>

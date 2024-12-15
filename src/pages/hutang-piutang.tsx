@@ -19,7 +19,7 @@ const HP: React.FC = () => {
             <UserProfil/>
             <TitleDivider
                 title="Hutang & Piutang"
-                path='' //ganti path asli
+                path='form-hutang-piutang'
             />
             <Row justify="space-evenly" align="top" style={{gap: '20px' }}>
                 <Col sm={23} xs={23} md={23} lg={7}>
@@ -52,5 +52,3 @@ const HP: React.FC = () => {
   };
   
   export default HP;
-
-  // divider ada garisnya coba cari solusi lain

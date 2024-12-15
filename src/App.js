@@ -23,6 +23,9 @@ import Pengeluaran from './pages/pengeluaran';
 //form import
 import FormPendapatan from "./pages/form/form-pendapatan"
 import FormMaster from './pages/form/form-master';
+import FormPengeluaran from './pages/form/form-pengeluaran';
+import FormInvestasiTabungan from './pages/form/form-investasi-tabungan';
+import FormHutangPiutang from './pages/form/form-hutang-piutang';
 
 //hooks import
 import ProtectedRoute from './hooks/protected-route';
@@ -45,8 +48,12 @@ const App = () => {
             <Route path="/hutang" element={<HP />} />
             <Route path="/beranda" element={<Beranda />} />
             <Route path="/" element={<Beranda />} />  
+
             <Route path='/form-pendapatan' element={<FormPendapatan />} />
             <Route path='/form-master' element={<FormMaster/>}/>
+            <Route path='/form-pengeluaran' element={<FormPengeluaran/>}/>
+            <Route path='/form-investasi-tabungan' element={<FormInvestasiTabungan/>}/>
+            <Route path='/form-hutang-piutang' element={<FormHutangPiutang/>}/>
           </Route>
         </Routes>
       </AuthProvider>
