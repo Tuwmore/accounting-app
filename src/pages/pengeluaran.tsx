@@ -5,6 +5,7 @@ import TitleDivider from "../feature/title-divider/title-divider";
 import TableCustom from "../feature/table/table";
 import AmbilData from "../hooks/ambil-data";
 import { db } from "../firebase";
+import FooterComponent from "../feature/footer/footer";
 
 //library import
 import { Layout, Row} from 'antd';
@@ -73,7 +74,7 @@ const Pendapatan: React.FC = () => {
                                 
                 />
             </Row>
-            <Footer/>
+            <FooterComponent/>
         </Layout>
     );
   };

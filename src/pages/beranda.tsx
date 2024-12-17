@@ -5,6 +5,7 @@ import Header from "../feature/header/header"
 import ActivityBoard from "../feature/activity/activity-board/activity-board"
 import Card from "../feature/card/card"
 import UserProfil from "../feature/user-profil/user-profil";
+import FooterComponent from "../feature/footer/footer";
 
 //library import
 import { Layout, Col, Row } from 'antd';
@@ -21,20 +22,35 @@ const Beranda: React.FC = () => {
             <Row justify="space-evenly">
                 <Col span={7}>
                     <Card
-                        title="Pemasukan"
-                        type="IN"
+                        title="Pedapatan"
+                        collection1="Pendapatan"
+                        collection2="Pengeluaran"
+                        amountField1="TotalPemasukan" // Replace with the field name in your income collection
+                        amountField2="JumlahPengeluaran" // Replace with the field name in your expenses collection
+                        type="In"
+                        lambang="In"
                     />
                 </Col>
                 <Col span={7}>
                     <Card
                         title="Pengeluaran"
-                        type="OUT"
+                        collection2="Pendapatan"
+                        collection1="Pengeluaran"
+                        amountField2="TotalPemasukan" // Replace with the field name in your income collection
+                        amountField1="JumlahPengeluaran" // Replace with the field name in your expenses collection
+                        type="Out"
+                        lambang="Out"
                     />
                 </Col>
                 <Col span={7}>
                     <Card
                         title="Dana"
-                        type="$"
+                        collection1="Pendapatan"
+                        collection2="Pengeluaran"
+                        amountField1="TotalPemasukan" // Replace with the field name in your income collection
+                        amountField2="JumlahPengeluaran" // Replace with the field name in your expenses collection
+                        type="dana"
+                        lambang="$"
                     />
                 </Col>
             </Row>
@@ -43,10 +59,11 @@ const Beranda: React.FC = () => {
                 <Col span={7}>
                     <ActivityBoard
                         title="Aktifitas"
+                        collections={["Tabungan", "Investasi", "Pendapatan", "Pengeluaran"]}
                     />
                 </Col>
             </Row>
-            <Footer/>
+            <FooterComponent/>
         </Layout>
     );
   };
